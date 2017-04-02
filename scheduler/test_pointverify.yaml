@@ -1,0 +1,23 @@
+programs:
+    # You can configure each database to its fullest.
+
+    -   program:
+        name: PRG01
+        pi: William Schoenell
+        #priority: 1           # (optional)
+        #slewAt: 57500.030     # Add time to slew in MJD (optional)
+        #exposeAt: 57500.040   # Add time to expose in MJD (optional)
+
+        # Add actions in the order they are intended to be performed.
+        actions:
+            -   action: point
+                name: SAO132941
+                #ra: "14:00:00"
+                #dec: "-30:00:00"
+                #epoch: J2000
+                #offset:
+                #    south: 600 # arcsec
+                #    east: 300 # arcsec
+
+            -   action: pointverify
+                here: True

@@ -1,0 +1,10 @@
+ As duas medidas abaixo sao zero se o teleescopio está perfeitamente no centro da cúpula.
+ Xm = 
+ Ym = 
+ Distancia entre o eixo do telescopio e o centro otico
+ Xt = 
+ Raio da cupula (talvez seja mais facil medir o diametro e dividir por 2)
+ Rc = 
+ 
+ 
+ (clicar em salvar apos realizar as medidas)

@@ -1,0 +1,47 @@
+programs:
+    # You can configure each database to its fullest.
+
+    -   program:
+        name: PRG01
+        pi: William Schoenell
+        #priority: 1           # (optional)
+        #slewAt: 57500.030     # Add time to slew in MJD (optional)
+        #exposeAt: 57500.040   # Add time to expose in MJD (optional)
+
+        # Add actions in the order they are intended to be performed.
+        actions:
+            #-   action: point
+            #    name: SAO132941
+                #ra: "14:00:00"
+                #dec: "-30:00:00"
+                #epoch: J2000
+                #offset:
+                #    south: 600 # arcsec
+                #    east: 300 # arcsec
+
+            #-   action: pointverify
+            #    here: True
+            
+            -   action: expose
+                frames: 10
+                filter: V
+                exptime: 4
+                binning: 2x2
+                compress: fits_rice
+                filename: "flatV_2x2-$DATE-$TIME"
+                imageType: FLAT
+
+            -   action: expose
+                frames: 10
+                filter: R
+                exptime: 2
+                binning: 2x2
+                #compress: fits_rice
+                filename: "flatR_2x2-$DATE-$TIME"
+                imageType: FLAT
+
+#            -   action: expose
+#                frames: 9
+#                filter: B
+#                exptime: 20
+#                imageType: FLAT # This will turn flat field lamp on, by default

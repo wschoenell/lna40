@@ -1,0 +1,13 @@
+ As duas medidas abaixo sao zero se o teleescopio está perfeitamente no centro da cúpula.
+ Xm = 1.41 metros
+ Ym = 1.41 metros
+ 
+ O eixo da montegem esta no centro da c[upula!
+ ]
+ Distancia entre o eixo do telescopio e o centro otico
+ Xt = 0.50 metros
+ Raio da cupula (talvez seja mais facil medir o diametro e dividir por 2)
+ Rc = 1.41 metros (raio)
+ 
+ 
+ (clicar em salvar apos realizar as medidas)

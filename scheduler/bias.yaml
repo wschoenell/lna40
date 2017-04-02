@@ -1,0 +1,38 @@
+programs:
+
+  - name: CALIB
+    actions:
+##      - action: expose
+#        frames: 1
+#        exptime: 0
+#        imageType: ZERO
+#        shutter: CLOSE
+#        filename: "bias-$DATE-$TIME"
+#        compress_format: fits_rice
+
+      - action: expose
+        frames: 30
+        exptime: 0
+        imageType: ZERO
+        shutter: CLOSE
+        filename: "bias2x2-$DATE-$TIME"
+        binning: 2x2
+        compress_format: fits_rice
+
+      - action: expose
+        frames: 10
+        exptime: 80
+        imageType: DARK
+        shutter: CLOSE
+        filename: "dark80_2x2-$DATE-$TIME"
+        binning: 2x2
+        compress_format: fits_rice
+
+        
+#      - action: expose
+#        frames: 11
+#        exptime: 0
+#        imageType: ZERO
+#        shutter: CLOSE
+#        filename: "bias3x3-$DATE-$TIME"
+#        binning: 3x3
