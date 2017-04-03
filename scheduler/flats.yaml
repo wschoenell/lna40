@@ -1,33 +1,24 @@
 programs:
-    # You can configure each database to its fullest.
 
     -   program:
-        name: PRG01
+        name: CALIBRATIONS
         pi: William Schoenell
-        #priority: 1           # (optional)
-        #slewAt: 57500.030     # Add time to slew in MJD (optional)
-        #exposeAt: 57500.040   # Add time to expose in MJD (optional)
 
-        # Add actions in the order they are intended to be performed.
+
         actions:
-            #-   action: point
-            #    name: SAO132941
-                #ra: "14:00:00"
-                #dec: "-30:00:00"
-                #epoch: J2000
-                #offset:
-                #    south: 600 # arcsec
-                #    east: 300 # arcsec
-
-            #-   action: pointverify
-            #    here: True
+            ### Point to flat position and stop dome tracking ###
+            -   action: point
+                alt: "+44:35:01.095"
+                az: "+259:49:23.831"
+                domeTracking: False
+                domeAz: "112:00:00"
             
             -   action: expose
                 frames: 10
                 filter: V
                 exptime: 4
                 binning: 2x2
-                compress: fits_rice
+                compress_format: fits_rice
                 filename: "flatV_2x2-$DATE-$TIME"
                 imageType: FLAT
 
@@ -36,12 +27,30 @@ programs:
                 filter: R
                 exptime: 2
                 binning: 2x2
-                #compress: fits_rice
+                compress_format: fits_rice
                 filename: "flatR_2x2-$DATE-$TIME"
                 imageType: FLAT
+                
+            ### Start dome tracking ###
+            -   action: point
+                domeTracking: True
 
-#            -   action: expose
-#                frames: 9
-#                filter: B
-#                exptime: 20
-#                imageType: FLAT # This will turn flat field lamp on, by default
+            ### BIAS ###
+            -   action: expose
+                frames: 30
+                exptime: 0
+                imageType: ZERO
+                shutter: CLOSE
+                filename: "bias2x2-$DATE-$TIME"
+                binning: 2x2
+                compress_format: fits_rice
+
+            ### DARKS ###
+            -   action: expose
+                frames: 10
+                exptime: 80
+                imageType: DARK
+                shutter: CLOSE
+                compress_format: fits_rice
+                filename: "dark80_2x2-$DATE-$TIME"
+                binning: 2x2
