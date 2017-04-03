@@ -17,7 +17,7 @@ programs:
         shutter: CLOSE
         filename: "bias2x2-$DATE-$TIME"
         binning: 2x2
-        compress_format: fits_rice
+        #compress_format: fits_rice
 
       - action: expose
         frames: 10
@@ -26,7 +26,7 @@ programs:
         shutter: CLOSE
         filename: "dark80_2x2-$DATE-$TIME"
         binning: 2x2
-        compress_format: fits_rice
+        #compress_format: fits_rice
 
         
 #      - action: expose
