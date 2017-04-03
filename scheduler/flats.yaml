@@ -1,56 +1,38 @@
 programs:
 
-    -   program:
-        name: CALIBRATIONS
-        pi: William Schoenell
+  - name: CALIB
+    actions:
+##      - action: expose
+#        frames: 1
+#        exptime: 0
+#        imageType: ZERO
+#        shutter: CLOSE
+#        filename: "bias-$DATE-$TIME"
+#        compress_format: fits_rice
 
+      - action: expose
+        frames: 30
+        exptime: 0
+        imageType: ZERO
+        shutter: CLOSE
+        filename: "bias2x2-$DATE-$TIME"
+        binning: 2x2
+        #compress_format: fits_rice
 
-        actions:
-            ### Point to flat position and stop dome tracking ###
-            -   action: point
-                alt: "+44:35:01.095"
-                az: "+259:49:23.831"
-                domeTracking: False
-                domeAz: "112:00:00"
-            
-            -   action: expose
-                frames: 10
-                filter: V
-                exptime: 4
-                binning: 2x2
-                compress_format: fits_rice
-                filename: "flatV_2x2-$DATE-$TIME"
-                imageType: FLAT
+      - action: expose
+        frames: 10
+        exptime: 80
+        imageType: DARK
+        shutter: CLOSE
+        filename: "dark80_2x2-$DATE-$TIME"
+        binning: 2x2
+        #compress_format: fits_rice
 
-            -   action: expose
-                frames: 10
-                filter: R
-                exptime: 2
-                binning: 2x2
-                compress_format: fits_rice
-                filename: "flatR_2x2-$DATE-$TIME"
-                imageType: FLAT
-                
-            ### Start dome tracking ###
-            -   action: point
-                domeTracking: True
-
-            ### BIAS ###
-            -   action: expose
-                frames: 30
-                exptime: 0
-                imageType: ZERO
-                shutter: CLOSE
-                filename: "bias2x2-$DATE-$TIME"
-                binning: 2x2
-                compress_format: fits_rice
-
-            ### DARKS ###
-            -   action: expose
-                frames: 10
-                exptime: 80
-                imageType: DARK
-                shutter: CLOSE
-                compress_format: fits_rice
-                filename: "dark80_2x2-$DATE-$TIME"
-                binning: 2x2
+        
+#      - action: expose
+#        frames: 11
+#        exptime: 0
+#        imageType: ZERO
+#        shutter: CLOSE
+#        filename: "bias3x3-$DATE-$TIME"
+#        binning: 3x3
