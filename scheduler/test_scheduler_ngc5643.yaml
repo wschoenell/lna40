@@ -23,7 +23,7 @@ programs:
                 imageType: object
                 objectName: NGC5643
                 filename: "NGC5643-$DATE-$TIME"
-                compress: fits_rice
+                #compress: fits_rice
                 binning: 2x2
                 
             -   action: expose
@@ -33,5 +33,5 @@ programs:
                 imageType: object
                 objectName: NGC5643
                 filename: "NGC5643-$DATE-$TIME"
-                compress: fits_rice
+                #compress: fits_rice
                 binning: 2x2
